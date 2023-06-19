@@ -1,0 +1,2 @@
+# template-gendloopAction
+Action template
