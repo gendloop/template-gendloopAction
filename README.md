@@ -1,2 +1,3 @@
 # template-gendloopAction
-Action template
+
+[Action_Name.yml](Action_Name.yml)
