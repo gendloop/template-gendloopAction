@@ -43,6 +43,7 @@ jobs:
         shell: pwsh
         run: |
           Remove-Item .github/workflows/Init.yml
+          Remove-Item .github/workflows/Copy_Secrets.yml
 
       - name: git-push
         uses: gendloop/git-push@main
