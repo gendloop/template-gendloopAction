@@ -21,7 +21,7 @@ jobs:
           echo "reponame=$repo_name" >> "$GITHUB_OUTPUT"
 
       - name: replace-README
-        uses: gendloop/replace-str@main
+        uses: gendloop/replace-str@v1.0.1
         with:
           token: ${{ github.token }}
           path-to-replace: README.md
@@ -30,7 +30,7 @@ jobs:
           replace-to-str: ${{ steps.get-repo-name.outputs.reponame }}
 
       - name: replace-Template
-        uses: gendloop/replace-str@main
+        uses: gendloop/replace-str@v1.0.1
         with:
           token: ${{ github.token }}
           path-to-replace: Template.yml
@@ -45,7 +45,14 @@ jobs:
           Remove-Item .github/workflows/Init.yml
 
       - name: git-push
-        uses: gendloop/git-push@main
+        uses: gendloop/git-push@v1.0.0
         with:
           token: ${{ github.token }}
           commit: "chore: Remove Init.yml"
+
+      - name: add-action-topic
+        uses: gendloop/replace-repo-topics@v1.0.0
+        with:
+          token: ${{ github.token }}
+          repo: ${{ steps.get-repo-name.outputs.reponame }}
+          topics: '"action"'
