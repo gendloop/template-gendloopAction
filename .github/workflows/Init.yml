@@ -49,10 +49,3 @@ jobs:
         with:
           token: ${{ github.token }}
           commit: "chore: Remove Init.yml"
-
-      - name: add-action-topic
-        uses: gendloop/replace-repo-topics@v1.0.0
-        with:
-          token: ${{ github.token }}
-          repo: ${{ steps.get-repo-name.outputs.reponame }}
-          topics: '"action"'
